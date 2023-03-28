@@ -207,7 +207,7 @@ int main() {
 
 16) __quelle est la différence entre une 'std::map<>' et une 'std::multimap<>' ?__
 - La classe `std::map` est une structure de données associative qui stocke les élements triés selon les clés. Elle permet l'accès rapide à une valeur associée à une donnée en utilisant l'operateur d'indexation `[]`. Si une clé existe déjà dans la map, l'élément est remplacé par la nouvelle valeur. Si une clé n'existe pas encore, un nouvel élément est ajouté.
-- La classe `std::multimap` est similaire à `std::map`, mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à 'std::map', l'opérateur `[]` n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions `lower_bound()` et `upper_bound() qui renvoient les itérateurs sur les éléments correspondants.
+- La classe `std::multimap` est similaire à `std::map`, mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à `std::map, l'opérateur `[]` n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions `lower_bound()` et `upper_bound() qui renvoient les itérateurs sur les éléments correspondants.
 
 17) __Comment définiriez-vous un Pattern ? Citez-en trois.__
 
