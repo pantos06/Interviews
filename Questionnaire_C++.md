@@ -88,6 +88,7 @@ les étapes suivante sont nécessaires:
 10) __En UML quelle est la différence entre agrégation et composition ? Donnez un exemple de chaque en C++.__
 - Dans une ___relation d'agégation___, une classe peut contenir d'autres classes, mais ces dernières peuvent exister indépendamment de la classe conteneur.
 Exemple:
+![Agrgregation](aggregation.svg)
 ```c++ {.line-numbers}
 class Personne {
 public:
