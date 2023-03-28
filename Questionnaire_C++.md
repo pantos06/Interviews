@@ -207,28 +207,113 @@ int main() {
 
 16) __quelle est la différence entre une 'std::map<>' et une 'std::multimap<>' ?__
 - La classe 'std::map' est une structure de données associative qui stocke les élements triés selon les clés. Elle permet l'accès rapide à une valeur associée à une donnée en utilisant l'operateur d'indexation []. Si une clé existe déjà dans la map, l'élément est remplacé par la nouvelle valeur. Si une clé n'existe pas encore, un nouvel élément est ajouté.
-- La classe 'std::multimap' est similaire à 'std::map', mais elle permet de stocker plusieurs élements ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. 
+- La classe 'std::multimap' est similaire à 'std::map', mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à 'std::map', l'opérateur [] n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions 'lower_bound()' et 'upper_bound()' qui renvoient les itérateurs sur les éléments correspondants.
+
 17) __Comment définiriez-vous un Pattern ? Citez-en trois.__
+Comment définiriez-vous un Pattern ? Citez-en trois.
+Un Pattern peut être défini comme une solution réutilisable à un problème commun dans un contexte donné. Il s'agit d'un modèle ou d'une structure que l'on peut appliquer à plusieurs situations similaires pour résoudre des problèmes similaires.
+- Trois Patterns
+    - Singleton
+    - Observer
+    - Chain of Responsibilit
 
 18) __Quels sont les avantages/désavantages d'utiliser des Threads ?__
 - L'utilisation des threads permet d'exécuter plusieurs tâches simultanément. ce qui peut améliorer les performances globales d'un programme
 - L'utilisation de threads permet d'utiliser efficacement les resources du système, car elle permet d'exécuter plusieurs tâches en parallèle sur un processeur multicoeur.
 
 19) __Dans quel ordre sont appelés les constructeurs et les destructeurs des objets membres d’une classe ?__
+Les constructeurs et destructeurs des objets membres d'une classe sont appelés dans l'ordre suivant :
+1. Les constructeurs des membres statiques de la classe sont appelés en premier. Les membres statiques sont des variables de classe qui sont partagées entre toutes les instances de la classe.
+2. Ensuite, les constructeurs des membres non statiques de la classe sont appelés dans l'ordre de déclaration dans la classe.
+3. Une fois que tous les constructeurs des membres ont été appelés, le constructeur de la classe elle-même est appelé.
 
+Lorsqu'un objet est détruit, les destructeurs sont appelés dans l'ordre inverse: 
+- Tout d'abord, le destructeur de la classe est appelé.
+- Suivi des destructeurs des membres non statiques dans l'ordre inverse de leur appel dans le constructeur de la classe.
+- Puis le destructeur des membres statiques est appelé en dernier.
 
+20) __Dans quel ordre sont appelés les constructeurs et les destructeurs des classes de base d’une classe dérivée utilisant l’héritage multiple ?__ 
+Dans le cas d'une classe dérivée utilisant l'héritage multiple, l'ordre d'appel des constructeurs et des destructeurs des classes de base est déterminé par l'ordre dans lequel les classes de base sont spécifiées dans la liste d'héritage.
 
-### 20) Dans quel ordre sont appelés les constructeurs et les destructeurs des classes de base d’une classe dérivée utilisant l’héritage multiple ? 
+- Lors de la construction d'un objet dérivé, les constructeurs des classes de base sont appelés dans l'ordre inverse de leur spécification dans la liste d'héritage. Par exemple, si une classe dérivée D hérite de deux classes de base B1 et B2, spécifiées dans cet ordre, alors le constructeur de B2 sera appelé en premier, suivi du constructeur de B1, puis du constructeur de D.
+- Lors de la destruction d'un objet dérivé, les destructeurs des classes de base sont appelés dans l'ordre inverse de celui de leur construction. C'est-à-dire que le destructeur de D sera appelé en premier, suivi du destructeur de B1, puis du destructeur de B2.
 
+21) __A quoi sert l’héritage virtuel ?__ 
+L'___héritage virtuel___ est une technique utilisée en programmation orientée objet pour résoudre les ambiguïtés qui peuvent survenir lorsqu'une classe dérivée hérite de plusieurs classes de base qui ont une classe de base commune. L'héritage virtuel permet de s'assurer qu'une classe de base commune n'est instanciée qu'une seule fois, quelle que soit le nombre de fois où elle est héritée.
 
-### 21) A quoi sert l’héritage virtuel ? 
+Exemple
+```c++
+#include <iostream>
+using namespace std;
+class Animal {
+public:
+    virtual void deplace() {
+        cout << "L'animal se déplace." << endl;
+    }
+};
+class AnimalTerrestre : public virtual Animal {
+public:
+    virtual void deplace() {
+        cout << "L'animal terrestre marche." << endl;
+    }
+};
+class AnimalAquatique : public virtual Animal {
+public:
+    virtual void deplace() {
+        cout << "L'animal aquatique nage." << endl;
+    }
+};
+class Amphibien : public AnimalTerrestre, public AnimalAquatique {
+public:
+    // L'appel à la méthode deplace() est ambigu sans l'utilisation de l'héritage virtuel
+    // Avec l'héritage virtuel, la méthode deplace() de la classe de base virtuelle Animal est appelée
+};
+int main() {
+    Amphibien grenouille;
+    grenouille.deplace(); // affiche "L'animal se déplace."
+    return 0;
+}
+```
 
-### 22) En C++, que signifie RAII ? Expliquez ce concept.
+22) __En C++, que signifie RAII ? Expliquez ce concept.__
+RAII est l'acronyme de "Resource Acquisition Is Initialization", ce qui signifie en français "l'acquisition de ressources se fait lors de l'initialisation". C'est un concept important en C++, qui est utilisé pour garantir que les ressources allouées dynamiquement sont correctement gérées.
+Exemple
+```c++
+class Resource {
+public:
+    Resource() {
+        // Allocation dynamique de la mémoire
+        m_data = new int[100];
+    }
+    ~Resource() {
+        // Libération de la mémoire
+        delete[] m_data;
+    }
+private:
+    int* m_data;
+};
+int main() {
+    // Création de l'objet Resource qui alloue la mémoire lors de l'initialisation
+    Resource res;
+    // Utilisation de la mémoire allouée
+    res.m_data[0] = 42;
+    // La mémoire est automatiquement libérée lorsque l'objet res sort de portée
+    return 0;
+}
+```
+Dans cet exemple, la classe `Resource` est une classe de gestion de ressource qui alloue de la mémoire dynamiquement dans son constructeur et libère cette mémoire dans son destructeur. Lorsque nous créons un objet `Resource`, la mémoire est allouée automatiquement. Lorsque l'objet sort de portée, le destructeur est appelé automatiquement et la mémoire est libérée.
 
-### 23) Quelles évolutions vous semblent les plus intéressantes dans la norme C++11 ?
+23) __Quelles évolutions vous semblent les plus intéressantes dans la norme C++11 ?__
+- Lambdas : Les lambdas sont des fonctions anonymes qui peuvent être définies à l'intérieur d'une fonction ou d'une expression. 
+- Déduction de type automatique : Il est désormais possible de déclarer une variable sans préciser son type grâce à l'opérateur `auto`. Le compilateur détermine automatiquement le type de la variable à partir de la valeur d'initialisation.
+- Nouvelles bibliothèques : C++11 introduit de nouvelles bibliothèques standard, telles que `thread`, `mutex` et `atomic`, qui facilitent la programmation multithread.
+- Mots-clés `constexpr` et `nullptr` : constexpr permet de déclarer des fonctions et des variables constantes qui peuvent être évaluées à la compilation, tandis que `nullptr` est utilisé pour représenter un pointeur nul.
+- Boucle for améliorée : La syntaxe de la boucle for a été améliorée pour prendre en charge les itérateurs de la bibliothèque standard, les tableaux et les expressions qui se comportent comme des conteneurs.
+- R-value references : Les références de valeurs droites permettent de manipuler les objets temporaires de manière plus efficace et sécurisée, en évitant les copies inutiles.
+- Move semantics : Les sémantiques de déplacement permettent de transférer efficacement les ressources d'un objet à un autre, sans effectuer de copie.
 
-### 24) Comment décrire votre philosophie de programmation?
+24) __Comment décrire votre philosophie de programmation?__
 
-### 25) Qu'est-ce que du bon code?
+25) __Qu'est-ce que du bon code?__
 
-### 26) Quelle approche suivez-vous pour tester vos programmes ?
+26) __Quelle approche suivez-vous pour tester vos programmes ?__
