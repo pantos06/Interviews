@@ -94,22 +94,22 @@ Exemple:
 ```c++ {.line-numbers}
 class Personne {
 public:
-    Personne(const std::string& name): m_name(name) {}
+    Personne(const std::string& nom): m_nom(nom) {}
     virtual ~Personne(){}
 private:
-    std::string _name;
+    std::string m_nom;
 };
 
 class Equipe {
 public:
-    Equipe(const std::string& name): m_name(name){}
+    Equipe(const std::string& nom): m_nom(nom){}
     virtual ~Equipe(){}
     
     void ajoutMembre(Personne* membre) {
         m_membres.push_back(membre);
     }
 private:
-    std::string m_name;
+    std::string m_nom;
     std:::vector<Personne*> m_membres;
     
 };
