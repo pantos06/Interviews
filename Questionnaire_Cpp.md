@@ -164,7 +164,7 @@ Dans cet exemple, la classe "___Auto___" est une classe qui contient un object d
 | Visibilité des membres | __public__ par défaut | __private__ par défaut |
 | Héritage | __public__ par défaut | __private__ par défaut |
 | Type mémoire | Une structure es de type valeur: ces objets sont crées dans la mémoire de pile | Une classe es de type référence: ces objects sont crées dans la mémoire du tas|
-|Convénance| lAdaptée aux petits objects |Adaptée aux objects plus grands ou complexes|
+|Convénance| Adaptée aux petits objects |Adaptée aux objects plus grands ou complexes|
 
 14) __Un destructeur peut-il être virtual pure ? Pourquoi ?__
 - Un destructeur virtuelle pure es défini en utilisant la syntaxe 
@@ -210,8 +210,8 @@ int main() {
 - La classe 'std::multimap' est similaire à 'std::map', mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à 'std::map', l'opérateur [] n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions 'lower_bound()' et 'upper_bound()' qui renvoient les itérateurs sur les éléments correspondants.
 
 17) __Comment définiriez-vous un Pattern ? Citez-en trois.__
-Comment définiriez-vous un Pattern ? Citez-en trois.
-Un Pattern peut être défini comme une solution réutilisable à un problème commun dans un contexte donné. Il s'agit d'un modèle ou d'une structure que l'on peut appliquer à plusieurs situations similaires pour résoudre des problèmes similaires.
+
+Un __Pattern__ peut être défini comme une solution réutilisable à un problème commun dans un contexte donné. Il s'agit d'un modèle ou d'une structure que l'on peut appliquer à plusieurs situations similaires pour résoudre des problèmes similaires.
 - Trois Patterns
     - Singleton
     - Observer
