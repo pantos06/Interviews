@@ -118,7 +118,7 @@ Dans cet exemple, la classe "___Equipe___" est une classe qui agrège plusieurs 
 - Dans une ___relation de composition___, une classe contient d'autres classes qui dépendent de la classe conteneur et qui ne peuvent pas exister sans elle.
 Exemple:
 
-![Agrgregation](composition.svg)
+![Composition](composition.svg)
 
 ```c++ {.line-numbers}
 class Moteur {
