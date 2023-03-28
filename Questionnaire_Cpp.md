@@ -114,7 +114,7 @@ private:
     
 };
 ```
-Dans cet exemple, la classe "___Equipe___" est une classe qui agrège plusieurs abjets de la classe "___Personne___". Les objects "Personne" peuvent exister indépendamment de la classe "Equipe", et ils peuvent être ajoutés ou rétirés de la classe "Equipe" sans être détruite.
+Dans cet exemple, la classe `Equipe` est une classe qui agrège plusieurs abjets de la classe `Personne`. Les objects "Personne" peuvent exister indépendamment de la classe `Equipe`, et ils peuvent être ajoutés ou rétirés de la classe `Equipe` sans être détruite.
 - Dans une ___relation de composition___, une classe contient d'autres classes qui dépendent de la classe conteneur et qui ne peuvent pas exister sans elle.
 Exemple:
 
@@ -139,7 +139,7 @@ private:
     std::unique_ptr<Moteur> m_moteur;
 }
 ```
-Dans cet exemple, la classe "___Auto___" est une classe qui contient un object de la classe "___Moteur___". L#object "Moteur" dépend de la classe "Auto" et ne peut pas exister sans elle. La classe "Auto" est responsable de la création et de la destruction de l'objet "Moteur", ce qui montre une rélation de composition.
+Dans cet exemple, la classe `Auto` est une classe qui contient un object de la classe `Moteur`. L'object `Moteur` dépend de la classe `Auto` et ne peut pas exister sans elle. La classe `Auto` est responsable de la création et de la destruction de l'objet `Moteur, ce qui montre une rélation de composition.
 
 11) __Qu'est-ce que le Scrum ? Intérêt et dangers ?__
 - Le Scrum est une méthode de gestion de project Agile qui permet de livrer des produits fonctionnels rapidement et régulièrement en utilisant des itération courtes apelées __sprints__. Scrum aide les équipes:
@@ -206,8 +206,8 @@ int main() {
 ```
 
 16) __quelle est la différence entre une 'std::map<>' et une 'std::multimap<>' ?__
-- La classe 'std::map' est une structure de données associative qui stocke les élements triés selon les clés. Elle permet l'accès rapide à une valeur associée à une donnée en utilisant l'operateur d'indexation []. Si une clé existe déjà dans la map, l'élément est remplacé par la nouvelle valeur. Si une clé n'existe pas encore, un nouvel élément est ajouté.
-- La classe 'std::multimap' est similaire à 'std::map', mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à 'std::map', l'opérateur [] n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions 'lower_bound()' et 'upper_bound()' qui renvoient les itérateurs sur les éléments correspondants.
+- La classe `std::map` est une structure de données associative qui stocke les élements triés selon les clés. Elle permet l'accès rapide à une valeur associée à une donnée en utilisant l'operateur d'indexation `[]`. Si une clé existe déjà dans la map, l'élément est remplacé par la nouvelle valeur. Si une clé n'existe pas encore, un nouvel élément est ajouté.
+- La classe `std::multimap` est similaire à `std::map`, mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à 'std::map', l'opérateur `[]` n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions `lower_bound()` et `upper_bound() qui renvoient les itérateurs sur les éléments correspondants.
 
 17) __Comment définiriez-vous un Pattern ? Citez-en trois.__
 
