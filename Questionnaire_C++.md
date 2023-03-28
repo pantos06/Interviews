@@ -88,7 +88,9 @@ les étapes suivante sont nécessaires:
 10) __En UML quelle est la différence entre agrégation et composition ? Donnez un exemple de chaque en C++.__
 - Dans une ___relation d'agégation___, une classe peut contenir d'autres classes, mais ces dernières peuvent exister indépendamment de la classe conteneur.
 Exemple:
+
 ![Agrgregation](aggregation.svg)
+
 ```c++ {.line-numbers}
 class Personne {
 public:
@@ -115,5 +117,86 @@ private:
 Dans cet exemple, la classe "___Equipe___" est une classe qui agrège plusieurs abjets de la classe "___Personne___". Les objects "Personne" peuvent exister indépendamment de la classe "Equipe", et ils peuvent être ajoutés ou rétirés de la classe "Equipe" sans être détruite.
 - Dans une ___relation de composition___, une classe contient d'autres classes qui dépendent de la classe conteneur et qui ne peuvent pas exister sans elle.
 Exemple:
+
+![Agrgregation](composition.svg)
+
 ```c++ {.line-numbers}
+class Moteur {
+public:
+    Moteur(const std::string& model): m_model(model) {}
+    virtual ~Moteur() = default;
+private:
+    std::string m_model;
+};
+class Auto{
+public:
+    Auto(const std::string& marque, const std::string& model_moteur): 
+        m_marque(marque),
+        m_moteur(std::make_unique<Moteur>(model_moteur))) {}
+    virtual ~Auto() = default;
+private:
+    std::string m_marque;
+    std::unique_ptr<Moteur> m_moteur;
+}
 ```
+Dans cet exemple, la classe "___Auto___" est une classe qui contient un object de la classe "___Moteur___". L#object "Moteur" dépend de la classe "Auto" et ne peut pas exister sans elle. La classe "Auto" est responsable de la création et de la destruction de l'objet "Moteur", ce qui montre une rélation de composition.
+
+11) __Qu'est-ce que le Scrum ? Intérêt et dangers ?__
+- Le Scrum est une méthode de gestion de project Agile qui permet de livrer des produits fonctionnels rapidement et régulièrement en utilisant des itération courtes apelées __sprints__. Scrum aide les équipes:
+    - à travailler de manière plus collaborative
+    - à améliorer la communication 
+    - a s'adapter aux changements tous au long du project.
+- Avantages:
+    - Livraison régulière de produits fontionnels
+    - Adaptabilité
+    - Collaboration
+- Dangers
+    - la Complexité
+    - la pression
+    - la dépendance au Product Owner
+    
+12) __En UML, comment définissez-vous un stéréotype ? Comment l’implémentez-vous en C++ ?__
+
+13) __En C++, quelles différences existe-t-il entre une struct et une classe ?__
+
+|    | struct | class |
+| -- | ------ | ------ |
+| Visibilité des membres | __public__ par défaut | __private__ par défaut |
+| Héritage | __public__ par défaut | __private__ par défaut |
+| Type mémoire | Une structure es de type valeur: ces objets sont crées dans la mémoire de pile | Une classe es de type référence: ces objects sont crées dans la mémoire du tas|
+|Convénance| lAdaptée aux petits objects |Adaptée aux objects plus grands ou complexes|
+
+14) __Un destructeur peut-il être virtual pure ? Pourquoi ?__
+- Un destructeur virtuelle pure es défini en utilisant la syntaxe 
+```c++
+virtual ~NomDeClass() = 0;
+```
+cela signifie que la classe est abstraite et qu'elle ne peut pa être instaciée directement.
+
+15) __A quoi servent les mots clef 'mutable' et 'explicit' ?__
+- __mutable__: est utilisé pour rentre un membre de classe modifiable même si la fonction memebre qui l'utilise es constante.
+Exemple
+```c++
+class Counter {
+public:
+    mutable int count;
+    Counter(int initial_count): count(initial_count){}
+    
+    void increment() const {
+        ++count; // Nous pouvons modifier la variable "count" grâce à "mutable"
+    }
+};
+```
+- __explicit__: est utilisé pour empêcher la conversion implicite d'un object d'une classe à un autree type de données, en utilisant un constructeur qui prend un seul argument.
+Exemple
+```c++
+class Celsius {
+public:
+    double temperature;
+    Celcius(double temp): temperature(temp){}
+};
+class Celsius {
+public:
+    double temperature;
+    Celcius(double temp): temperature(temp){}
+};
