@@ -190,13 +190,45 @@ public:
 - __explicit__: est utilisé pour empêcher la conversion implicite d'un object d'une classe à un autree type de données, en utilisant un constructeur qui prend un seul argument.
 Exemple
 ```c++
-class Celsius {
+class MyClass {
 public:
-    double temperature;
-    Celcius(double temp): temperature(temp){}
+    int x;
+    explicit MyClass(int _val): x(x_val){}
 };
-class Celsius {
-public:
-    double temperature;
-    Celcius(double temp): temperature(temp){}
-};
+int main() {
+    // La conversion implicite n'est pas autorisée car le constructeur es ecplicit
+    // MyClass obj1 = 5;
+    
+    // Conversion explicite en utilisant le constructeur
+    MyClass obj2 =MyClass(5);
+    std::cout << "x = "<< obj2.x << std::endl;
+}
+```
+
+16) __quelle est la différence entre une 'std::map<>' et une 'std::multimap<>' ?__
+- La classe 'std::map' est une structure de données associative qui stocke les élements triés selon les clés. Elle permet l'accès rapide à une valeur associée à une donnée en utilisant l'operateur d'indexation []. Si une clé existe déjà dans la map, l'élément est remplacé par la nouvelle valeur. Si une clé n'existe pas encore, un nouvel élément est ajouté.
+- La classe 'std::multimap' est similaire à 'std::map', mais elle permet de stocker plusieurs élements ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. 
+17) __Comment définiriez-vous un Pattern ? Citez-en trois.__
+
+18) __Quels sont les avantages/désavantages d'utiliser des Threads ?__
+- L'utilisation des threads permet d'exécuter plusieurs tâches simultanément. ce qui peut améliorer les performances globales d'un programme
+- L'utilisation de threads permet d'utiliser efficacement les resources du système, car elle permet d'exécuter plusieurs tâches en parallèle sur un processeur multicoeur.
+
+19) __Dans quel ordre sont appelés les constructeurs et les destructeurs des objets membres d’une classe ?__
+
+
+
+### 20) Dans quel ordre sont appelés les constructeurs et les destructeurs des classes de base d’une classe dérivée utilisant l’héritage multiple ? 
+
+
+### 21) A quoi sert l’héritage virtuel ? 
+
+### 22) En C++, que signifie RAII ? Expliquez ce concept.
+
+### 23) Quelles évolutions vous semblent les plus intéressantes dans la norme C++11 ?
+
+### 24) Comment décrire votre philosophie de programmation?
+
+### 25) Qu'est-ce que du bon code?
+
+### 26) Quelle approche suivez-vous pour tester vos programmes ?
