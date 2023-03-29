@@ -72,7 +72,7 @@ les étapes suivante sont nécessaires:
 - Étape 3- Crée un prototype (PoC). Cette étape est optionel et intéressant dans la majorité des cas pour les fonctionnalités complexes. Cela permettra de tester rapidement l'approche choisie et de vérifier si les exigences sont correctement comprises.
 - Étape 4 - Implementer  la fonctionnalité: Il es important de suivre les bonnes pratiques de développement de logiciels, telles que:
     - la programmation en équipe 
-    . les test unitaires
+    - les test unitaires
     - la revue de code
     - l'intégration continue
     
@@ -139,7 +139,7 @@ private:
     std::unique_ptr<Moteur> m_moteur;
 }
 ```
-Dans cet exemple, la classe `Auto` est une classe qui contient un object de la classe `Moteur`. L'object `Moteur` dépend de la classe `Auto` et ne peut pas exister sans elle. La classe `Auto` est responsable de la création et de la destruction de l'objet `Moteur, ce qui montre une rélation de composition.
+Dans cet exemple, la classe `Auto` est une classe qui contient un object de la classe `Moteur`. L'object `Moteur` dépend de la classe `Auto` et ne peut pas exister sans elle. La classe `Auto` est responsable de la création et de la destruction de l'objet `Moteur`, ce qui montre une rélation de composition.
 
 11) __Qu'est-ce que le Scrum ? Intérêt et dangers ?__
 - Le Scrum est une méthode de gestion de project Agile qui permet de livrer des produits fonctionnels rapidement et régulièrement en utilisant des itération courtes apelées __sprints__. Scrum aide les équipes:
@@ -207,7 +207,7 @@ int main() {
 
 16) __quelle est la différence entre une 'std::map<>' et une 'std::multimap<>' ?__
 - La classe `std::map` est une structure de données associative qui stocke les élements triés selon les clés. Elle permet l'accès rapide à une valeur associée à une donnée en utilisant l'operateur d'indexation `[]`. Si une clé existe déjà dans la map, l'élément est remplacé par la nouvelle valeur. Si une clé n'existe pas encore, un nouvel élément est ajouté.
-- La classe `std::multimap` est similaire à `std::map`, mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à `std::map, l'opérateur `[]` n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions `lower_bound()` et `upper_bound() qui renvoient les itérateurs sur les éléments correspondants.
+- La classe `std::multimap` est similaire à `std::map`, mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à `std::map`, l'opérateur `[]` n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions `lower_bound()` et `upper_bound()` qui renvoient les itérateurs sur les éléments correspondants.
 
 17) __Comment définiriez-vous un Pattern ? Citez-en trois.__
 
@@ -215,7 +215,7 @@ Un __Pattern__ peut être défini comme une solution réutilisable à un problè
 - Trois Patterns
     - Singleton
     - Observer
-    - Chain of Responsibilit
+    - Chain of Responsibility
 
 18) __Quels sont les avantages/désavantages d'utiliser des Threads ?__
 - L'utilisation des threads permet d'exécuter plusieurs tâches simultanément. ce qui peut améliorer les performances globales d'un programme
