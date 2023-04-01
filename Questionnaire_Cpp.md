@@ -297,7 +297,7 @@ int main() {
     Resource res;
     // Utilisation de la mémoire allouée
     res.m_data[0] = 42;
-    // La mémoire est automatiquement libérée lorsque l'objet ressort de portée
+    // La mémoire est automatiquement libérée lorsque l'objet est hors de la portée de main()
     return 0;
 }
 ```
