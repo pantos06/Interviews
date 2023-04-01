@@ -159,7 +159,7 @@ Dans cet exemple, la classe `Auto` est une classe qui contient un object de la c
 
 13) __En C++, quelles différences existe-t-il entre une struct et une classe ?__
 
-|    | struct | class |
+|    | struct | classe |
 | -- | ------ | ------ |
 | Visibilité des membres | __public__ par défaut | __private__ par défaut |
 | Héritage | __public__ par défaut | __private__ par défaut |
