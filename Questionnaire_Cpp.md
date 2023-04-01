@@ -13,7 +13,7 @@ Un système temps réel est un système quit doit fournir des résultats correct
 - __Encapsulation__ possibilité pour une classe de décider ce qui va/peut être accessible/modifiable de l'extérieur. L'encapsulation est réalisée en C++ par les mots clés suivants:
   - _public_ : accessible et modifiable hors de la classe
   - _protected_: accessible et modifiable uniquement par les sous-classes
-  - _privated_: pas accessible ni modifiable de l'extérieur
+  - _privated_: pas accessible, ni modifiable de l'extérieur
 - __Héritage__ possibilité pour une classe d'étendre et de réutiliser le code d'une autre classe. La classe héritée est appelée "_super-classe_", tandis que la classe dérivée est appelée "_sous-classe_"
 ```c++ {.line-numbers}
 class Animal {
