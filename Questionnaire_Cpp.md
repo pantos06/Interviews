@@ -1,7 +1,7 @@
 # Questionnaire C++
 
 1) __Donner une définition d'un système temps réel ?__
-Un système temps réel es un system quit doit fournir des résultat corrects dans un délais prédéfinit. Les contraintes de temps de réponse sont la principale caracteristique des systèmes temps réels.
+Un système temps réel est un système quit doit fournir des résultats corrects dans un délai prédéfini. Les contraintes de temps de réponse sont la principale caracteristique des systèmes temps réels.
 
 2) __Quels sont vos librairies et outils préférés pour le développement en C++ ?__
 - IDE: VSCode
@@ -9,22 +9,22 @@ Un système temps réel es un system quit doit fournir des résultat corrects da
 - Libraries: Boost
 
 3) __Que signifient : Polymorphisme, Encapsulation, Héritage ?__
-- __Polymorphisme__ signifie plusieurs formes. Dans l'informatique c'est la capacité d'un object à faire référence à la super-class et ou à la sous-class en fonction du type de référence
-- __Encapsulation__ possibilité pour une classe de décider ce qui va/peut être accessible/modifiable de l'extérieur. L'encapsulation est réalisée en C++ par les mot clés suivants:
+- __Polymorphisme__ signifie plusieurs formes. Dans l'informatique c'est la capacité d'un object à faire référence à la super-classe et ou à la sous-classe en fonction du type de référence
+- __Encapsulation__ possibilité pour une classe de décider ce qui va/peut être accessible/modifiable de l'extérieur. L'encapsulation est réalisée en C++ par les mots clés suivants:
   - _public_ : accessible et modifiable hors de la classe
   - _protected_: accessible et modifiable uniquement par les sous-classes
   - _privated_: pas accessible ni modifiable de l'extérieur
-- __Héritage__ possibilité pour une classe d'étendre et de réutiliser le code d'une autre classe. La classe héritée est appelée "_super-class_", tandis que la class dérivée est appelée "_sous-class_"
+- __Héritage__ possibilité pour une classe d'étendre et de réutiliser le code d'une autre classe. La classe héritée est appelée "_super-classe_", tandis que la classe dérivée est appelée "_sous-classe_"
 ```c++ {.line-numbers}
 class Animal {
 protected: //<- Tout ce qui suit ne peut être accessible que dans cette classe et les sous-classes de Animal
     std::string nom; // <-- Accessible uniquement ici et dans les sous-classes
 public: //<- Tout ce qui suit ne peut être accessible
-    virtual void bruit() {   // <-- La méthode bruit peut être accessible de l'extérieur et peut être redefinie par les sous class
+    virtual void bruit() {   // <-- La méthode bruit peut être accessible de l'extérieur et peut être redefinie par les sous-classes
         std::cout << "L'animal fait un bruit" << std::endl;
     }
 };
-class Chien: public Animal { // <-- polymorphisme: Chien hérite de la class Animal
+class Chien: public Animal { // <-- polymorphisme: Chien hérite de la classe Animal
   void bruit() {
       std::cout << "Le chien fait: bow wow" << std::endl;
   }
@@ -32,13 +32,13 @@ class Chien: public Animal { // <-- polymorphisme: Chien hérite de la class Ani
 ```
 
 4) __Quelle définition donneriez-vous aux termes suivants : classe abstraite, méthode virtuelle, méthode virtuelle pure, surcharge ? Comment les implémenter en C++ ?__
-- __Classe abstraite__ classe qui ne peut pas être instanciée directement, mais qui sert de modèle pour les sous-classes qui en héritent. Elle permet de créer une hiérachie de classe qui partage des caractéristiques communes, tout en fournissant une structure de base pour les sous-classes qui doivent  implémenter leur propre fonctionalité spécifique.
+- __Classe abstraite__ classe qui ne peut pas être instanciée directement, mais qui sert de modèle pour les sous-classes qui en héritent. Elle permet de créer une hiérachie de classe qui partage des caractéristiques communes, tout en fournissant une structure de base pour les sous-classes qui doivent  implémenter leur propre fonctionnalité spécifique.
 - __Méthode virtuelle__ méthode définie dans une classe de base qui peut être redéfinie (ou surchargée) par une sous-classe.
-- __Méthode pure virtuelle__ méthode défini dans une classe abstraite qui n'a pas d'implémentation dans cette classe
+- __Méthode pure virtuelle__ méthode définie dans une classe abstraite qui n'a pas d'implémentation dans cette classe
 - __Surcharge__ La surcharge de méthode est réalisée en définissant plusieurs méthodes avec le même ___nom___ dans une classe, mais les ___signatures___ différentes.
 Exemple:
 ```c++ {.line-numbers}
-class ExempleDeClassAbstraite { // <- doit avoir au moin une méthode pure virtuelle
+class ExempleDeClassAbstraite { // <- doit avoir au moins une méthode pure virtuelle
 public:
     virtual void methode_pure_virtuelle() = 0;
     virtual void methode_virtuelle() {
@@ -54,25 +54,25 @@ public:
 ```
 5) __Quelles sont les raisons de privilégier l'implémentation d'interfaces avec délégation plutôt que des chaînes d'héritage profondes ?__
 L'implementation d'interface avec délégation:
-- permet d'éviter les problèmes de résolution multiple d'héritage (Pour les languages ne supportant pas l'héritage multiples)
+- permet d'éviter les problèmes de résolution multiple d'héritage (Pour les languages ne supportant pas l'héritage multiple)
 - offre une plus grande flexibilité
 - facilite la réutilisation du code
 - permet de respecter le principe de Liskov (mainternir une bonne séparation des préoccupations) et
-- et simplifie la hiérachie d'héritage en divisant la fonctionnalité en petites parties indépendante.
+- simplifie la hiérachie d'héritage en divisant la fonctionnalité en petites parties indépendantes.
 
 6) __Quels sont vos sites Web préférés pour progresser en C++ ?__
 
 7) __Selon vous, quel est le process idéal pour aborder le développement d'une fonctionnalité dans une petite équipe?__
-les étapes suivante sont nécessaires:
+les étapes suivantes sont nécessaires:
 - Étape 1- Comprendre les exigences:
 - Étape 2- Planifier la fonctionalité  
-    - définir les étapes nécessaire pour implementer la fonctionnalité
+    - définir les étapes nécessaires pour implementer la fonctionnalité
     - définir les rôles et responsabilités de chaque membre de l'équipe
-    - définir les dépendances éventuelle et les échéances
-- Étape 3- Crée un prototype (PoC). Cette étape est optionel et intéressant dans la majorité des cas pour les fonctionnalités complexes. Cela permettra de tester rapidement l'approche choisie et de vérifier si les exigences sont correctement comprises.
-- Étape 4 - Implementer  la fonctionnalité: Il es important de suivre les bonnes pratiques de développement de logiciels, telles que:
+    - définir les dépendances éventuelles et les échéances
+- Étape 3- Créer un prototype (PoC). Cette étape est optionnelle et intéressante dans la majorité des cas pour les fonctionnalités complexes. Cela permettra de tester rapidement l'approche choisie et de vérifier si les exigences sont correctement comprises.
+- Étape 4 - Implémenter  la fonctionnalité: Il est important de suivre les bonnes pratiques de développement de logiciels, telles que:
     - la programmation en équipe 
-    - les test unitaires
+    - les tests unitaires
     - la revue de code
     - l'intégration continue
     
@@ -114,7 +114,7 @@ private:
     
 };
 ```
-Dans cet exemple, la classe `Equipe` est une classe qui agrège plusieurs abjets de la classe `Personne`. Les objects "Personne" peuvent exister indépendamment de la classe `Equipe`, et ils peuvent être ajoutés ou rétirés de la classe `Equipe` sans être détruite.
+Dans cet exemple, la classe `Equipe` est une classe qui agrège plusieurs objets de la classe `Personne`. Les objects "Personne" peuvent exister indépendamment de la classe `Equipe`, et ils peuvent être ajoutés ou rétirés de la classe `Equipe` sans être détruite.
 - Dans une ___relation de composition___, une classe contient d'autres classes qui dépendent de la classe conteneur et qui ne peuvent pas exister sans elle.
 Exemple:
 
@@ -139,13 +139,13 @@ private:
     std::unique_ptr<Moteur> m_moteur;
 }
 ```
-Dans cet exemple, la classe `Auto` est une classe qui contient un object de la classe `Moteur`. L'object `Moteur` dépend de la classe `Auto` et ne peut pas exister sans elle. La classe `Auto` est responsable de la création et de la destruction de l'objet `Moteur`, ce qui montre une rélation de composition.
+Dans cet exemple, la classe `Auto` est une classe qui contient un object de la classe `Moteur`. L'object `Moteur` dépend de la classe `Auto` et ne peut pas exister sans elle. La classe `Auto` est responsable de la création et de la destruction de l'objet `Moteur`, ce qui montre une rlation de composition.
 
 11) __Qu'est-ce que le Scrum ? Intérêt et dangers ?__
 - Le Scrum est une méthode de gestion de project Agile qui permet de livrer des produits fonctionnels rapidement et régulièrement en utilisant des itération courtes apelées __sprints__. Scrum aide les équipes:
     - à travailler de manière plus collaborative
     - à améliorer la communication 
-    - a s'adapter aux changements tous au long du project.
+    - a s'adapter aux changements tout au long du project.
 - Avantages:
     - Livraison régulière de produits fontionnels
     - Adaptabilité
@@ -163,18 +163,18 @@ Dans cet exemple, la classe `Auto` est une classe qui contient un object de la c
 | -- | ------ | ------ |
 | Visibilité des membres | __public__ par défaut | __private__ par défaut |
 | Héritage | __public__ par défaut | __private__ par défaut |
-| Type mémoire | Une structure es de type valeur: ces objets sont crées dans la mémoire de pile | Une classe es de type référence: ces objects sont crées dans la mémoire du tas|
-|Convénance| Adaptée aux petits objects |Adaptée aux objects plus grands ou complexes|
+| Type mémoire | Une structure est de type valeur: ces objets sont créés dans la mémoire de pile | Une classe est de type référence: ces objects sont créés dans la mémoire du tas|
+|Convénance| Adaptée aux petits objets |Adaptée aux objects plus grands ou complexes|
 
 14) __Un destructeur peut-il être virtual pure ? Pourquoi ?__
-- Un destructeur virtuelle pure es défini en utilisant la syntaxe 
+- Un destructeur virtuel pur est défini en utilisant la syntaxe 
 ```c++
 virtual ~NomDeClass() = 0;
 ```
-cela signifie que la classe est abstraite et qu'elle ne peut pa être instaciée directement.
+cela signifie que la classe est abstraite et qu'elle ne peut pas être instanciée directement.
 
 15) __A quoi servent les mots clef 'mutable' et 'explicit' ?__
-- __mutable__: est utilisé pour rentre un membre de classe modifiable même si la fonction memebre qui l'utilise es constante.
+- __mutable__: est utilisé pour rentre un membre de classe modifiable même si la fonction membre qui l'utilise est constante.
 Exemple
 ```c++
 class Counter {
@@ -187,7 +187,7 @@ public:
     }
 };
 ```
-- __explicit__: est utilisé pour empêcher la conversion implicite d'un object d'une classe à un autree type de données, en utilisant un constructeur qui prend un seul argument.
+- __explicit__: est utilisé pour empêcher la conversion implicite d'un objet d'une classe à un autre type de données, en utilisant un constructeur qui prend un seul argument.
 Exemple
 ```c++
 class MyClass {
@@ -196,7 +196,7 @@ public:
     explicit MyClass(int _val): x(x_val){}
 };
 int main() {
-    // La conversion implicite n'est pas autorisée car le constructeur es ecplicit
+    // La conversion implicite n'est pas autorisée car le constructeur est explicite
     // MyClass obj1 = 5;
     
     // Conversion explicite en utilisant le constructeur
@@ -206,7 +206,7 @@ int main() {
 ```
 
 16) __quelle est la différence entre une 'std::map<>' et une 'std::multimap<>' ?__
-- La classe `std::map` est une structure de données associative qui stocke les élements triés selon les clés. Elle permet l'accès rapide à une valeur associée à une donnée en utilisant l'operateur d'indexation `[]`. Si une clé existe déjà dans la map, l'élément est remplacé par la nouvelle valeur. Si une clé n'existe pas encore, un nouvel élément est ajouté.
+- La classe `std::map` est une structure de données associative qui stocke les élements triés selon les clés. Elle permet l'accès rapide à une valeur associée à une donnée en utilisant l'opérateur d'indexation `[]`. Si une clé existe déjà dans la map, l'élément est remplacé par la nouvelle valeur. Si une clé n'existe pas encore, un nouvel élément est ajouté.
 - La classe `std::multimap` est similaire à `std::map`, mais elle permet de stocker plusieurs éléments ayant la même clé. Les éléments sont triés selon la clé, puis selon l'ordre d'insertion. Contrairement à `std::map`, l'opérateur `[]` n'est pas disponible, car plusieurs éléments peuvent avoir la même clé. Pour accéder aux éléments d'une clé donnée, il faut utiliser les fonctions `lower_bound()` et `upper_bound()` qui renvoient les itérateurs sur les éléments correspondants.
 
 17) __Comment définiriez-vous un Pattern ? Citez-en trois.__
@@ -297,7 +297,7 @@ int main() {
     Resource res;
     // Utilisation de la mémoire allouée
     res.m_data[0] = 42;
-    // La mémoire est automatiquement libérée lorsque l'objet res sort de portée
+    // La mémoire est automatiquement libérée lorsque l'objet ressort de portée
     return 0;
 }
 ```
